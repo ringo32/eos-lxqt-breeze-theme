@@ -9,7 +9,7 @@
 # build directory
 THEME_BASEDIR="themes"
 # theme name prefix
-THEME_BASENAME="Breeze"
+THEME_BASENAME="Eos-Breeze"
 
 # create the build directory if it doesn't exist
 mkdir -p "$THEME_BASEDIR"
