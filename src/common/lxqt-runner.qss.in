@@ -1,0 +1,99 @@
+#panel {
+    background: @widget-bg-color;
+    border: 1px solid @widget-border-color;
+    color: @font-color;
+    padding: 0;
+}
+
+QLineEdit {
+    border-radius: @button-corner-radius;
+    background: @entry-bg-color;
+    border: 1px solid @accent-color-full;
+    padding: 4px 3px;
+    margin: 2px 1px;
+    margin-right: 0;
+    color: @font-color;
+    selection-color: @font-selected-color;
+    selection-background-color: @accent-color-full;
+}
+
+QToolButton {
+    margin: 3px;
+    margin-right: 0;
+    border-radius: @button-corner-radius;
+    border: 1px solid transparent;
+    padding: 1px;
+    qproperty-iconSize: 22px;
+}
+
+QToolButton:hover {
+    background: @accent-color-low;
+    border: 1px solid @accent-color-full;
+}
+
+QToolButton::menu-indicator {
+   image: none;
+}
+
+#closeButton {
+    qproperty-icon: url(lxqt-runner/window-close.svg);
+}
+
+#actionButton {
+    qproperty-icon: url(lxqt-runner/application-menu.svg);
+}
+
+#commandList {
+    background: @widget-bg-color;
+    alternate-background-color: @widget-bg-color;
+    border: 1px solid @widget-border-color;
+    border-top: 0;
+    margin: 0;
+    padding: 4px;
+    color: @font-color;
+    selection-color: @font-color; /* font color of selected item */
+}
+
+#commandList::item {
+    background: @widget-bg-color;
+    border: 1px transparent;
+    border-radius: @button-corner-radius;
+    margin: 0;
+}
+
+#commandList::item:hover,
+#commandList::item:selected {
+    background: @accent-color-low;
+    border: 1px solid @accent-color-full;
+    margin: 0;
+}
+
+QMenu {
+    background: @widget-bg-color;
+    border: 1px solid @widget-border-color;
+    border-radius: @menu-corner-radius;
+    padding: 4px;
+    margin: 0;
+}
+
+QMenu::icon {
+    padding-left: 6px;
+}
+
+QMenu::item {
+    color: @font-color;
+    border: 1px solid transparent;
+    border-radius: @button-corner-radius;
+    margin: 0;
+    padding: 4px;
+}
+
+QMenu::item:selected {
+    background: @accent-color-low;
+    border: 1px solid @accent-color-full;
+    color: @font-color;
+}
+
+QMenu::right-arrow {
+    image: url(right-arrow.svg);
+}

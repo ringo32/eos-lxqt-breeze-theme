@@ -1,0 +1,50 @@
+#!SCHEME:dark
+# main accent colors
+@accent-color-low:rgba(110, 86, 169, 33%)
+@accent-color-medium:rgba(110, 86, 169, 50%)
+@accent-color-full:rgba(110, 86, 169, 100%)
+# urgent hint colors
+@urgent-color-full:rgba(246, 116, 0, 100%)
+@urgent-color-medium:rgba(246, 116, 0, 50%)
+@urgent-color-low:rgba(246, 116, 0, 33%)
+# generic element background color
+@widget-bg-color:#2a2e32
+# header areas for calendar and context menus
+@widget-header-background:#303439
+@widget-header-border-color:#484c4f
+# border color for menus and popups
+@widget-border-color:#32373c
+# start menu search box
+@menu-search-border-color:#5e6061
+@menu-search-padding:6px
+# start menu and runner search box bg color
+@entry-bg-color:#1b1e20
+# main menu outer padding
+@menu-margin:3px
+# separator lines in start an context menus
+@menu-separator-color:#484c4f
+# font colors
+@font-color:#fcfcfc
+@font-inactive-color:#939597
+@font-selected-color:#fcfcfc
+# indicator line above inactive taskbar buttons
+@taskbar-inactive-indicator-color:#6f7275
+# tooltip popups
+@popup-border-color:#33373d
+@popup-bg-color:#2a2e32
+# volume and backlight slider popups
+@slider-knob-bg-color:#31363b
+@slider-knob-border-color:#7a7c7f
+@slider-trunk-bg-color:#3b3e41
+@slider-trunk-border-color:#595c5f
+# notification buttons
+@notification-button-border-color:#6d7174
+@notification-button-bg-color:#31363b
+# corner radius of menus
+@menu-corner-radius:0
+# outer padding of menus
+@menu-padding:2px
+# corner radius for inner elements like buttons
+@button-corner-radius:2px
+# notification corner radius
+@notification-corner-radius:2px
