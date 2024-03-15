@@ -1,0 +1,46 @@
+stages:
+  - build
+  - release
+
+build_themes:
+  stage: build
+  image: bash:latest
+  rules:
+    # run this job when a tag is created
+    - if: $CI_COMMIT_TAG
+  script:
+    - bash build-lxqt-themes.sh
+    - mv themes/* .
+  after_script:
+    # save the job ID for the release job
+    - echo "JOB_ID=$CI_JOB_ID" >> job.env
+  artifacts:
+    name: 'LXQt-theme-breeze-${CI_COMMIT_TAG}'
+    paths:
+      - '*Breeze'
+    expire_in: never
+    reports:
+      dotenv: job.env
+
+release_artifacts:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - echo 'Creating release for $CI_COMMIT_TAG'
+  rules:
+    # run this job when a tag is created
+    - if: $CI_COMMIT_TAG
+  needs:
+    - job: build_themes
+      artifacts: true
+  release:
+    name: 'LXQt Breeze Theme $CI_COMMIT_TAG'
+    tag_name: '$CI_COMMIT_TAG'
+    description: |
+      Automated CI build of $CI_COMMIT_TAG
+
+      $CI_COMMIT_TAG_MESSAGE
+    assets:
+      links:
+        - name: 'Download theme'
+          url: 'https://gitlab.com/M4he/lxqt-theme-breeze/-/jobs/${JOB_ID}/artifacts/download'
