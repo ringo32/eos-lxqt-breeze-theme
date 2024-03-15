@@ -43,4 +43,4 @@ release_artifacts:
     assets:
       links:
         - name: 'Download theme'
-          url: 'https://gitlab.com/M4he/lxqt-theme-breeze/-/jobs/${JOB_ID}/artifacts/download'
+          url: 'https://github.com/ringo32/eos-lxqt-breeze-theme/-/jobs/${JOB_ID}/artifacts/download'
