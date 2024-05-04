@@ -1,77 +1,29 @@
 Notification {
-    border: 1px solid @widget-border-color;
-    border-radius: @notification-corner-radius;
-    background: @widget-bg-color;
-    color: @font-color;
-    margin: 0;
-    padding: 0;
+    color: #313639;
+    border: 1px solid rgba(155, 155, 155, 100%);
+    background: rgba(240, 240, 240, 100%);
+    margin: 0px;
+    border-radius: 5px;
 }
 
 QLabel {
-    color: @font-color;
+    color: #313639;
 }
-
-/* the application icon (if any) is actually a QLabel widget */
-/* NOTE: if changing margins, specifiy min-/max-width/-height respectively */
-#iconLabel {
-    margin-left: 4px;
-    max-width: 32px;
-    min-width: 32px;
-}
-
-/* we confine the space for all labels with left and right margins
-   to align them with the outer border of action buttons below,
-   which are placed slightly inwards (can't seem to change that) */
-
-#appLabel {
-    margin-top: 4px;
-    font-weight: bold;
-    margin-left: 2px;
-    margin-right: 4px;
-}
-
-#summaryLabel {
-    font-weight: normal;
-    margin-left: 2px;
-    margin-right: 4px;
-}
-
-#bodyLabel {
-    font-weight: normal;
-    margin-left: 2px;
-    margin-right: 4px;
-}
-
 
 #closeButton {
-    qproperty-icon: url(lxqt-notificationd/window-close.svg);
+    margin: 3px;
+    border-radius: 4px;
     border: 1px solid transparent;
-    border-radius: @button-corner-radius;
-    padding: 1px;
-    color: white;
-    margin: 0;
-    margin-top: 2px;
+    padding: 4px;
+    qproperty-icon: url(lxqt-notificationd/window-close.svg);
 }
 
 #closeButton:hover {
     color: rgba(54, 54, 54, 100%);
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
+    background: rgba(30, 145, 255, 30%);
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
 
-/* action buttons */
-
-QPushButton {
-    color: @font-color;
-    font-weight: normal;
-    background: @notification-button-bg-color;
-    border: 1px solid @notification-button-border-color;
-    border-radius: @button-corner-radius;
-    padding: 4px 6px;
-}
-
-QPushButton:hover {
-    color: @font-color;
-    border: 1px solid @accent-color-full;
-    background: @accent-color-low;
+#appLabel {
+    font-weight: bold;
 }
