@@ -1,20 +1,20 @@
-/* Breeze theme based on the "Kde-plasma" theme */
+/*This is a port of the design proposal for Plasma Next made by the KDE Visual Design Group. Ported by Inti Alonso.*/
 
 /*
  * General panel settings
  */
 
 LXQtPanel #BackgroundWidget {
-    background: @widget-bg-color;
+    background: rgba(240, 240, 240, 100%);
 }
 
 QToolTip {
-    border-radius: 0px;
-    border: 1px solid @popup-border-color;
-    background: @popup-bg-color;
+    border-radius: 4px;
+    border: 1px solid rgba(155, 155, 155, 100%);
+    background: rgba(240, 240, 240, 100%);
     padding: 2px;
     margin: 0px;
-    color: @font-color;
+    color: #313639;
 }
 
 /*
@@ -25,12 +25,12 @@ Plugin,
 LXQtPanelPlugin {
     padding: 0;
     spacing: 20px;
-    qproperty-moveMarkerColor: @accent-color-medium;
+    qproperty-moveMarkerColor: rgba(30, 145, 255, 50%);
 }
 
-Plugin  > QWidget,
-Plugin  > QWidget > QWidget{
-    color: @font-color;
+Plugin > QWidget,
+Plugin > QWidget > QWidget {
+    color: #313639;
 }
 
 Plugin > QToolButton,
@@ -39,356 +39,446 @@ Plugin > QWidget > QToolButton > QWidget > QToolButton,
 LXQtPanelPlugin > QToolButton {
     margin: 0;
     border: 1px solid transparent;
-    color: @font-color;
     qproperty-iconSize: 24px;
+    color: #313639;
 }
 
 QMenu {
-    border: 1px solid @widget-border-color;
-    background: @widget-bg-color;
-    border-radius: @menu-corner-radius;
-    padding: @menu-padding;
-    margin: 0;
+    border: 1px solid rgba(155, 155, 155, 100%);
+    background: rgba(240, 240, 240, 100%);
+    margin: 0px;
+    color: #313639;
+}
+
+QMenu QToolButton {
+    background-color: transparent;
+    color: black;
+    font: bold;
+    /* padding and border guarantee that it won't be drawn by widget style */
+    padding: 1px;
+    border: none;
+    font: bold;
 }
 
 QMenu::item {
-    color: @font-color;
-    border: 1px solid transparent;
-    border-radius: @button-corner-radius;
-
-    margin: 3px;
-	padding-left: 12px;
-	padding-right: 28px;
-	padding-top: 4px;
-	padding-bottom: 4px;
-}
-
-QMenu::separator {
-    background: @menu-separator-color;
-    margin: 3px;
-}
-
-QMenu::icon
-{
-	padding-left: 12px;
-}
-
-QMenu::icon:selected
-{
-	padding-left: 12px;
+    color: #313639;
 }
 
 QMenu::item:disabled {
-    color: @font-inactive-color;
+    color: rgb(160, 160, 160);
 }
 
 QMenu::item:selected {
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
-    color: @font-color;
+    background: rgba(30, 145, 255, 50%);
+    color: #313639;
 }
 
 QMenu::item:selected:disabled {
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
-    color: @font-inactive-color;
+    color: rgb(160, 160, 160);
+    background: rgb(240, 240, 240);
 }
 
 QMenu::right-arrow {
     image: url(right-arrow.svg);
 }
 
-/* menu headers/titles of the panel context menu */
-QMenu > QToolButton {
-    color: @font-color;
-    background: @widget-header-background;
-    border: 1px solid @widget-header-border-color;
-    border-radius: @button-corner-radius;
-    padding: 6px 4px;
-    margin: @menu-margin;
+QMenu::indicator {
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
 }
 
+QMenu::indicator:non-exclusive:unchecked {
+    image: url(/unchecked.svg);
+}
+
+QMenu::indicator:non-exclusive:checked {
+    image: url(checked.svg);
+}
 
 /*
  * Main menu
  */
-
-/* the menu button on the panel */
-QToolButton#MainMenu {
-    color: @font-color;
-    margin: 3px;
-    padding-top: 0;
+#MainMenu {
+    color: rgba(54, 54, 54, 100%);
+    margin: 3px 1px 3px 1px;
     border-top: 3px solid transparent;
     qproperty-icon: url(mainmenu.svg);
 }
 
-QToolButton#MainMenu:hover {
-    border-top: 3px solid @accent-color-medium;
+#MainMenu:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
 }
 
-/* search field */
 #MainMenu QLineEdit {
-    background: @entry-bg-color;
-    border: 1px solid @menu-search-border-color;
-    border-radius: @button-corner-radius;
-    padding: 4px 3px;
-    margin: @menu-margin;
-    color: @font-inactive-color;
-    selection-color: @font-selected-color;
-    selection-background-color: @accent-color-full;
+    color: #000000;
+    background: #f0f0f0;
+    border: 1px solid #9b9b9b;
+    border-radius: 0px;
+    padding: 3px;
+    selection-color: #eee;
+    selection-background-color: #1e91ff;
 }
 
 #MainMenu QLineEdit:focus {
-    border-color: @accent-color-full;
-    color: @font-color;
+    border: 1px solid #1e91ff;
 }
 
-/* search results */
 #MainMenu ActionView {
-    background: @widget-bg-color;
-    border: none;
-    padding: @menu-margin;
+    background: #f0f0f0;
+    border: 1px solid #9b9b9b;
+    color: #313639;
 }
 
 #MainMenu ActionView::item {
-    padding: 3px 0;
-    padding-left: 4px;
-    background: @widget-bg-color;
-    border: 1px transparent;
-    border-radius: @button-corner-radius;
-    margin: 0;
-    color: @font-color;
+    border: 1px solid transparent;
+    color: #313639;
 }
 
-#MainMenu ActionView::item::hover,
-#MainMenu ActionView::item::selected {
-    padding-left: 3px;
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
+#MainMenu ActionView::item:hover {
+    background: rgba(30, 145, 255, 10%);
+    color: #313639;
 }
 
+#MainMenu ActionView::item:selected {
+    background: rgba(30, 145, 255, 50%);
+    color: #313639;
+}
+
+/*
+ * Fancy menu
+ */
+#FancyMenu {
+    color: rgba(54, 54, 54, 100%);
+    margin: 3px 1px 3px 1px;
+    border-top: 3px solid transparent;
+    qproperty-icon: url(mainmenu.svg);
+}
+
+#FancyMenu:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+}
+
+LXQtFancyMenuWindow {
+    background: #f0f0f0;
+}
+
+#FancyMenu QLineEdit {
+    color: #000000;
+    background: #f0f0f0;
+    border: 1px solid #9b9b9b;
+    border-radius: 0px;
+    padding: 3px;
+    selection-color: #eee;
+    selection-background-color: #1e91ff;
+}
+
+#FancyMenu QLineEdit:focus {
+    border: 1px solid #1e91ff;
+}
+
+#FancyMenu #AppView {
+    background: #eaeaea;
+    border: 1px solid #9b9b9b;
+    color: #313639;
+}
+
+#FancyMenu QListView::item {
+    border: 1px solid transparent;
+    color: #313639;
+}
+
+#FancyMenu QListView::item:hover {
+    background: rgba(30, 145, 255, 10%);
+    color: #313639;
+}
+
+#FancyMenu QListView::item:selected {
+    background: rgba(30, 145, 255, 50%);
+    color: #313639;
+}
+
+#FancyMenu QListView::focus {
+    outline:transparent;
+    padding: 0px;
+}
+
+#FancyMenu QToolButton {
+    margin: 3px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    padding: 4px;
+}
+
+#FancyMenu QToolButton:hover,
+#FancyMenu QToolButton:focus {
+    border: 1px solid rgba(30, 145, 255, 100%);
+}
+
+#FancyMenu QToolButton:pressed {
+    color: rgba(54, 54, 54, 100%);
+    border: 1px solid rgba(30, 145, 255, 100%);
+    background-color: rgba(30, 145, 255, 30%);
+}
+
+#FancyMenu QScrollBar:vertical {
+    background-color: #f0f0f0;
+    width: 15px;
+    margin: 2px 2px 2px 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+#FancyMenu QScrollBar:horizontal {
+    background-color: #f0f0f0;
+    height: 15px;
+    margin: 2px 2px 2px 2px;
+    border: 1px solid transparent;
+}
+
+#FancyMenu QScrollBar::handle{
+    background-color:  rgba(30, 145, 255, 10%);
+    border: 1px solid #2878c8;
+    min-height: 40px;
+    border-radius: 1px;
+    margin: 1px;
+}
+
+#FancyMenu QScrollBar::handle:hover {
+    background-color: #74a5f0;
+    border: 1px solid #74a5f0;
+    margin: 0px;
+}
+
+#FancyMenu QScrollBar::add-line,
+#FancyMenu QScrollBar::sub-line {
+    border: 0px solid transparent;
+    background: transparent;
+    width: 0px;
+}
+
+#FancyMenu QAbstractScrollArea::corner {
+    background: transparent;
+}
+
+/*
+ * DirectoryMenu
+ */
+#DirectoryMenu {
+    margin: 3px;
+    padding-top: 2px;
+    border-top: 3px solid transparent;
+}
+
+#DirectoryMenu:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+}
+
+/*
+ * Backlight
+ */
+#Backlight {
+    margin: 3px;
+    padding-top: 2px;
+    border-top: 3px solid transparent;
+}
+
+#Backlight:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+}
+
+/*
+ * Sensors
+ */
+#Sensors {
+    margin: 3px;
+}
 
 /*
  * TaskBar
  */
-
 #TaskBar QToolButton {
     margin: 3px;
     padding-top: 2px;
-    border-top: 3px solid @taskbar-inactive-indicator-color;
-    color: @font-inactive-color;
+    border-top: 3px solid #DEDEDE;
+    color: rgba(54, 54, 54, 60%);
 }
 
 #TaskBar QToolButton:on {
-    border-top: 3px solid @accent-color-full;
-    color: @font-color;
+    border-top: 3px solid rgba(30, 145, 255, 100%);
+    color: rgba(54, 54, 54, 100%);
 }
 
-#TaskBar QToolButton:hover,
-#TaskBar QToolButton[urgent="true"]:hover {
-    border-top: 3px solid @accent-color-full;
-    background: @accent-color-low;
-    color: @font-color;
+#TaskBar QToolButton:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+    color: rgba(54, 54, 54, 100%);
 }
 
 #TaskBar QToolButton[urgent="true"] {
-    border-top-color: @urgent-color-full;
-    background: @urgent-color-low;
-    color: @font-color;
+    color: palette(highlighted-text);
+    background: palette(highlight);
 }
 
-/* selection popup for multiple windows */
 #TaskBar LXQtGroupPopup {
-    border: 1px solid @widget-border-color;
-    background: @popup-bg-color;
+    background: rgba(240, 240, 240, 100%);
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
-
 
 /*
  * QuickLaunch
  */
-
 #QuickLaunchPlaceHolder {
-    color: @accent-color-medium;
+    color: #1e91ff;
+    padding: 0 5px;
 }
 
-#QuickLaunch QToolButton{
-    margin: 3px;
-    padding-top: 1px; /* this influences downwards shift of icons */
+#QuickLaunch QToolButton {
+    margin: 3px 1px 3px 1px;
     border-top: 3px solid transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
-#QuickLaunch QToolButton:hover{
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
+#QuickLaunch QToolButton:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+    color: rgba(54, 54, 54, 100%);
 }
-
 
 /*
  * Volume plugin
  */
-
 #VolumePlugin QToolButton {
-    margin: 3px;
-    padding-top: 1px;
+    margin: 3px 1px 3px 1px;
     border-top: 3px solid transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
 #VolumePlugin QToolButton:hover {
-    border-top: 3px solid @accent-color-medium;
+    border-top: 3px solid rgba(30, 145, 255, 50%);
 }
 
+
 VolumePopup {
-    border: 1px solid @widget-border-color;
-    background: @widget-bg-color;
+    border: 1px solid rgba(155, 155, 155, 100%);
+    background: rgba(240, 240, 240, 100%);
     padding: 4px;
 }
 
-VolumePopup  > QPushButton {
-    color: @font-inactive-color;
-    padding: 4px 6px;
-    margin: 4px;
-    border-radius: @button-corner-radius;
-    qproperty-iconSize: 22px;
+VolumePopup > QPushButton {
+    color: rgba(54, 54, 54, 60%);
+    background: rgba(30, 145, 255, 30%);
+    padding: 2px 10px;
+    margin: 3px;
+    border-radius: 4px;
+    qproperty-iconSize: 24px;
 }
 
-VolumePopup  > QPushButton:hover {
-    color: @font-color;
-    border: 1px solid @accent-color-full;
-    background: @accent-color-low;
+VolumePopup > QPushButton:hover {
+    color: rgba(54, 54, 54, 100%);
+    background: rgba(30, 145, 255, 30%);
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
 
-VolumePopup  > QSlider {
-    margin-top: 2px;
-    margin-bottom: 2px;
+VolumePopup > QSlider {
+    margin-top: 4px;
 }
 
-VolumePopup  > QSlider::groove:vertical {
-    background: @slider-trunk-bg-color;
-    border: 1px solid @slider-trunk-border-color;
-    width: 4px;
+VolumePopup > QSlider::groove:vertical {
+    background: rgba(155, 155, 155, 50%);
+    width: 8px;
     border-radius: 3px;
 }
 
-VolumePopup  > QSlider::handle:vertical {
+VolumePopup > QSlider::handle:vertical {
     height: 10px;
-    width: 14px;
-    background: @slider-knob-bg-color;
-    border-radius: 4px;
-    border: 1px solid @slider-knob-border-color;
-    margin: 0 -7px; /* expand outside the groove */
+    width: 10px;
+    background: rgba(240, 240, 240, 100%);
+    border-radius: 5px;
+    border: 1px solid rgba(54, 54, 54, 100%);
+    margin: 0 -4px; /* expand outside the groove */
 }
 
-VolumePopup  > QSlider::handle:vertical:hover {
-    border: 1px solid @accent-color-full;
+VolumePopup > QSlider::add-page:vertical {
+    background: rgba(30, 145, 255, 100%);
+    border: 1px solid rgba(155, 155, 155, 100%);
+    border-radius: 3px;
+
 }
 
-VolumePopup  > QSlider::add-page:vertical {
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
-    border-radius: 2px;
+VolumePopup > QSlider::sub-page:vertical {
+    border: 1px solid rgba(155, 155, 155, 100%);
+    border-radius: 3px;
 }
-
-VolumePopup  > QSlider::sub-page:vertical {
-    border: 1px solid @slider-trunk-border-color;
-    background: @slider-trunk-bg-color;
-    border-radius: 2px;
-}
-
 
 /*
  * Desktopswitch
  */
-
-#DesktopSwitch QToolButton{
+#DesktopSwitch QToolButton {
     margin: 3px;
-    padding-top: 0px; /* this influences downwards shift of text */
+    padding-top: 2px;
     border-top: 3px solid transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
-#DesktopSwitch QToolButton:hover,
-#DesktopSwitch QToolButton[urgent="true"]:hover {
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
+#DesktopSwitch QToolButton:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+    color: rgba(54, 54, 54, 100%);
 }
 
-#DesktopSwitch QToolButton:on,
-#DesktopSwitch QToolButton[urgent="true"]:on {
-    border-top: 3px solid @accent-color-full;
-    color: @font-color;
+#DesktopSwitch QToolButton:on {
+    border-top: 3px solid rgba(30, 145, 255, 100%);
+    color: rgba(54, 54, 54, 100%);
 }
 
 #DesktopSwitch QToolButton[urgent="true"] {
-    border-top: 3px solid @urgent-color-full;
-    color: @urgent-color-full;
+    color: palette(highlighted-text);
+    background: palette(highlight);
 }
-
 
 /*
  * Mount plugin
  */
-
-#LXQtMountPlugin QToolButton{
-    margin-top: 3px;
-    margin-bottom: 3px;
-    padding-top: 0; /* this influences downwards shift of icons */
+#LXQtMountPlugin QToolButton {
+    margin: 3px;
+    padding-top: 2px;
     border-top: 3px solid transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
-#LXQtMountPlugin QToolButton:hover{
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
+#LXQtMountPlugin QToolButton:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+    color: rgba(54, 54, 54, 100%);
 }
 
 #LXQtMountPopup {
-    border: 1px solid @widget-border-color;
-    background: @widget-bg-color;
-    color: @font-color;
-    /*padding: 4px;*/
-}
-
-#LXQtMountPopup > MenuDiskItem {
-    color: @font-inactive-color;
+    background: rgba(240, 240, 240, 100%);
+    color: rgba(54, 54, 54, 100%);
     padding: 4px;
 }
 
-#LXQtMountPopup > MenuDiskItem:hover {
-
+#LXQtMountPopup > MenuDiskItem {
+    color: rgba(54, 54, 54, 60%);
 }
+
+#LXQtMountPopup > MenuDiskItem:hover {}
 
 #LXQtMountPopup #EjectButton,
 #LXQtMountPopup #DiskButton {
     background-color: transparent;
-    border-radius: @button-corner-radius;
+    border-radius: 4px;
     border: 1px solid transparent;
     padding: 4px;
-    color: @font-color;
-}
-
-#LXQtMountPopup #DiskButton {
     qproperty-iconSize: 22px;
-    min-width: 120px;
-}
-
-#LXQtMountPopup #EjectButton {
-    margin-left: 4px;
-    qproperty-iconSize: 16px;
-    padding: 7px; /* = DiskButton.padding + (icon-size-difference)/2 */
 }
 
 #LXQtMountPopup #EjectButton:hover,
 #LXQtMountPopup #DiskButton:hover {
-    color: @font-color;
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
+    color: rgba(54, 54, 54, 100%);
+    background: rgba(30, 145, 255, 30%);
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
 
 #LXQtMountPopup #NoDiskLabel {
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
     margin: 6px;
 }
 
@@ -396,122 +486,72 @@ VolumePopup  > QSlider::sub-page:vertical {
 /*
  * ShowDesktop
  */
-
 #ShowDesktop {
     margin: 3px;
-    padding-top: 1px;
-    padding-left: 2px;
+    padding-top: 2px;
     border-top: 3px solid transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
-#ShowDesktop:hover{
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
+#ShowDesktop:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
+    color: rgba(54, 54, 54, 100%);
 }
 
 
 /*
  * KbIndicator
  */
-
 #KbIndicator > QLabel {
-    border-top: 3px solid transparent;
     margin: 3px;
-    padding-top: 0; /* this influences downwards shift of text */
-    color: @font-inactive-color;
+    padding-top: 2px;
+    border-top: 3px solid transparent;
+    color: rgba(54, 54, 54, 60%);
 }
 
 #KbIndicator > QLabel:enabled {
-    border-top: 3px solid @accent-color-full;
-    color: @font-color;
+    border-top: 3px solid rgba(30, 145, 255, 100%);
+    color: rgba(54, 54, 54, 100%);
 }
 
 #KbIndicator:disabled {
     background: transparent;
-    color: @font-inactive-color;
+    color: rgba(54, 54, 54, 60%);
 }
 
-/* keyboard layout indicator */
-#KbIndicator > QToolButton {
-    margin-top: 4px; /* this influences downwards shift of text */
-    padding: 0;
-    color: @font-color;
+/*
+ * Clock
+ */
+#Clock #TimeLabel {
+    margin-right: 4px;
+    color: rgba(54, 54, 54, 100%);
+}
+
+#Clock #DateLabel {
+    color: rgba(54, 54, 54, 60%);
 }
 
 
 /*
- * Tray icons
+ * Tray
  */
-
-/* NOTE: order is important here, the "+" button is a QToolButton
-   but not a StatusNotifierButton, styling this first and then
-   resetting stuff in StatusNotifierButton definitions below will
-   keep stylings specific to the "+" button */
-#StatusNotifier > QToolButton {
-    padding-top: 0;
-    margin: 3px;
-    font-weight: bold;
-    color: @font-inactive-color;
-}
-
-#StatusNotifier > QToolButton:hover {
-    padding-top: 0;
-    margin: 3px;
-    border: 1px solid @accent-color-full;
-    border-radius: @button-corner-radius;
-    background: @accent-color-low;
-    color: @font-color;
-}
-
-/* NOTE: (also see note above) since StatusNotifierButtons are
-   also QToolButtons, we need to reset all values from the
-   above definitions made specifically for the "+" button */
-
-#StatusNotifier StatusNotifierButton {
-    border: none;
-    border-top: 3px solid transparent;
-    border-radius: 0;
-    padding-top: 0; /* this influences downwards shift of icons */
-    margin: 3px;
-}
-
-#StatusNotifier StatusNotifierButton:hover {
-    border: none;
-    border-top: 3px solid @accent-color-medium;
-    border-radius: 0;
-    padding-top: 0; /* this influences downwards shift of icons */
-    background: transparent;
-}
-
 #Tray {
-    margin-top: 0; /* this influences downwards shift of icons */
-    min-width: 22px;
+    min-width: 6px;
 }
 
 TrayIcon {
-    margin-left: 3px;
-    margin-right: 3px;
+    margin: 2px;
 }
-
-TrayIcon:hover {
-    margin-left: 3px;
-    margin-right: 3px;
-}
-
 
 /*
  * #SysStat
  */
-
-#SysStat QWidget {
-    padding: 2px 2px 2px 2px;
-    margin: 2px;
+#SysStat {
+    padding: 1px 1px 1px 1px;
 }
 
 #SysStat > QLabel {
     font-size: 6pt;
-    color: @font-color;
 }
 
 #SysStat_Graph {
@@ -534,82 +574,59 @@ TrayIcon:hover {
 /*
  * WorldClock
  */
-
 #WorldClock {
-    border-top: 3px transparent;
-    margin-top: 3px;
+    margin: 3px;
+    padding-top: 2px;
+    border-top: 3px solid transparent;
+    color: rgba(54, 54, 54, 100%);
 }
 
-#WorldClock:hover{
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
+#WorldClock:hover {
+    border-top: 3px solid rgba(30, 145, 255, 50%);
 }
-
-#WorldClockContent {
-    margin: 2px;
-    margin-top: 4px; /* this influences downwards shift of text */
-    color: @font-color;
-}
-
 
 /*
  * CPU monitor
  */
-
 #LXQtCpuLoad {
-    qproperty-fontColor: @font-color;
+    qproperty-fontColor: #cacaca;
 }
-
 
 /*
  * Calendar Widget
  */
-
-QCalendarWidget #qt_calendar_navigationbar {
-    border-top: 1px solid @widget-header-border-color;
-    border-bottom: 1px solid @widget-header-border-color;
-    border-left: 1px solid @widget-border-color;
-    border-right: 1px solid @widget-border-color;
-}
-
 QCalendarWidget #qt_calendar_navigationbar,
 QCalendarWidget #qt_calendar_navigationbar * {
-    background: @widget-header-background;
-    color: @font-color;
+    background: rgba(190, 190, 190, 100%);
+    color: rgba(54, 54, 54, 100%);
 }
+
 QCalendarWidget QToolButton {
     margin: 3px;
-    border-radius: @button-corner-radius;
+    border-radius: 4px;
     border: 1px solid transparent;
     padding: 4px;
 }
+
 QCalendarWidget QToolButton:hover {
-    color: @font-color;
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
-}
-QCalendarWidget QToolButton::menu-indicator {
-   image: none;
+    color: rgba(54, 54, 54, 100%);
+    background: rgba(30, 145, 255, 30%);
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
 
-/* NOTE: we should set the same top border as the navigationbar
-here too because this widget overlaps the navigationbar but this
-does not actually work due to https://bugreports.qt.io/browse/QTBUG-83961 */
-QCalendarWidget QLineEdit  {
-    border-top: 1px solid @widget-header-border-color;
-    color: @font-color;
+QCalendarWidget QToolButton::menu-indicator {
+    image: none;
 }
 
 QCalendarWidget QSpinBox {
     background: white;
-    selection-background-color: @accent-color-low;
-    selection-color: @font-color;
+    selection-background-color: rgba(30, 145, 255, 30%);
+    selection-color: rgba(54, 54, 54, 100%);
 }
 
 QCalendarWidget QTableView {
-    background: @widget-bg-color;
-    selection-background-color: @accent-color-low;
-    color: @font-color;
+    background: rgba(240, 240, 240, 100%);
+    selection-background-color: rgba(30, 145, 255, 30%);
 }
 
 QCalendarWidget #qt_calendar_nextmonth {
@@ -625,29 +642,16 @@ QCalendarWidget #qt_calendar_prevmonth {
 }
 
 QCalendarWidget QWidget {
-    alternate-background-color: @widget-bg-color;
+    alternate-background-color: rgba(210, 210, 210, 100%);
 }
 
 QTableViewItem {
-    border: 1px solid @accent-color-full;
+    border: 1px solid rgba(30, 145, 255, 100%);
 }
-
-QCalendarWidget QAbstractItemView {
-    border: 1px solid @widget-border-color;
-    border-top: 0;
-    border-bottom: 0;
-}
-
-/* days of other months */
-QCalendarWidget QAbstractItemView:disabled {
-    color: @font-inactive-color;
-}
-
 
 /*
  * Spacer
  */
-
 #Spacer {
     background-position: center center;
 }
@@ -658,177 +662,16 @@ QCalendarWidget QAbstractItemView:disabled {
 
 #Spacer[type="dotted"] {
     background-image: url(/spacer-plugin/spacer-dots.svg);
- }
+}
 
 #Spacer[orientation="horizontal"] {
     background-repeat: repeat-y;
-    margin-top: 3px;
-    margin-bottom: 3px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 #Spacer[orientation="vertical"] {
     background-repeat: repeat-x;
-    margin-right: 3px;
-    margin-left: 3px;
-}
-
-
-/*
- * Backlight Plugin
- */
-
-#Backlight {
-    border: none;
-    border-top: 3px solid transparent;
-    border-radius: 0;
-    padding-top: 0; /* this influences downwards shift of icons */
-    margin: 3px;
-    qproperty-icon: url(/brightness.svg);
-    qproperty-iconSize: 24px;
-}
-
-#Backlight:hover {
-    border: none;
-    border-top: 3px solid @accent-color-medium;
-    border-radius: 0;
-    padding-top: 0; /* this influences downwards shift of icons */
-    background: transparent;
-}
-
-#Backlight > SliderDialog > QToolButton {
-    color: @font-inactive-color;
-    padding: 4px 6px;
-    margin: 4px;
-    border-radius: @button-corner-radius;
-}
-
-#Backlight > SliderDialog > QToolButton:hover {
-    color: @font-color;
-    border: 1px solid @accent-color-full;
-    background: @accent-color-low;
-}
-
-#Backlight > SliderDialog {
-    background: @widget-bg-color;
-    border: 1px solid @widget-border-color;
-}
-
-#Backlight > SliderDialog > QSlider {
-    min-width: 18px;
-    max-width: 18px;
-}
-
-#Backlight > SliderDialog > QSlider::groove:vertical {
-    background: @slider-trunk-bg-color;
-    border-radius: 3px;
-    border: 1px solid @slider-trunk-border-color;
-    width: 4px;
-}
-
-#Backlight > SliderDialog > QSlider::handle:vertical {
-    height: 10px;
-    width: 14px;
-    background: @slider-knob-bg-color;
-    border-radius: 4px;
-    border: 1px solid @slider-knob-border-color;
-    margin: 0 -7px; /* expand outside the groove */
-}
-
-#Backlight > SliderDialog > QSlider::handle:vertical:hover {
-    border: 1px solid @accent-color-full;
-}
-
-#Backlight > SliderDialog > QSlider::add-page:vertical {
-    background: @accent-color-low;
-    border: 1px solid @accent-color-full;
-    border-radius: 2px;
-}
-#Backlight > SliderDialog > QSlider::sub-page:vertical {
-    border: 1px solid @slider-trunk-border-color;
-    background: @slider-trunk-bg-color;
-    border-radius: 2px;
-}
-
-
-/*
- * DirectoryMenu
- */
-
-#DirectoryMenu {
-    margin: 3px;
-    padding-top: 0; /* this influences downwards shift of icons */
-    border-top: 3px solid transparent;
-    color: @font-inactive-color;
-}
-
-#DirectoryMenu:hover {
-    border-top: 3px solid @accent-color-medium;
-    color: @font-color;
-}
-
-
-/*
- * ColorPicker (v1.0.0 and below)
- */
-
-#ColorPicker {
-    margin-top: 3px; /* this influences downwards shift of icon and textbox */
-    margin-left: 3px;
-    margin-right: 3px;
-}
-
-#ColorPicker QToolButton {
-    border: 1px solid transparent;
-    border-radius: @button-corner-radius;
-    color: @font-inactive-color;
-}
-
-#ColorPicker QToolButton:hover {
-    border: 1px solid @accent-color-full;
-    background: @accent-color-low;
-}
-
-#ColorPicker QToolButton:on,
-#ColorPicker QToolButton:pressed {
-    border: 1px solid transparent;
-    background: transparent;
-}
-
-#ColorPicker QLineEdit {
-    margin-left: 1px;
-    border-radius: @button-corner-radius;
-    border: 1px solid @menu-search-border-color;
-    background: @entry-bg-color;
-    color: @font-color;
-    selection-color: @font-selected-color;
-    selection-background-color: @accent-color-full;
-}
-
-#ColorPicker QLineEdit:focus {
-    border: 1px solid @accent-color-full;
-}
-
-
-/*
- * ColorPicker (v1.1.0 and up)
- */
-
-/* separator line */
-#ColorPicker QFrame {
-    border: 1px solid transparent;
-    background: @menu-separator-color;
-    margin: 0 1px;
-    margin-top: 1px;
-}
-
-#ColorPickerPickerButton {
-    margin: 0;
-    margin-top: 3px;
-    margin-bottom: 2px;
-}
-
-QToolButton#ColorPickerColorButton {
-    margin: 0;
-    margin-top: 3px;
-    margin-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
